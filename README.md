@@ -37,6 +37,11 @@ const changeDetail = {
     "0.02": 0,
     "0.01": 0
 };
+const error = document.getElementById('error');
+const ul = document.getElementById('change');
+
+const priceInput = document.getElementById("price");
+const moneyInput = document.getElementById("money");
 
 function descSort(a, b) {
     return b - a;
@@ -44,18 +49,20 @@ function descSort(a, b) {
 
 function rendLargent(price, money) {
     if(isNaN(price) || price < 0) {
-        console.log('invalid price')
+        error.innerHTML = "invalid price";
     } else if(isNaN(money) || money < 0) {
-        console.log('invalid money')
+        error.innerHTML = "invalid money";
     } else if(money < price) {
-        console.log('not enough money');
+        error.innerHTML = "not enough money";
     } else {
         let change = money - price;
 
         if(change === 0) {
-            console.log('nothing to give back!');
+            error.innerHTML = "nothing to give back!";
         } else {
-            console.log(changeDetailCalculation(change));
+           let aled = changeDetailCalculation(change);
+
+           render(aled);
         }
     }
 }
@@ -80,5 +87,26 @@ function changeDetailCalculation(change) {
     return changeDetail;
 }
 
-rendLargent("1.75", "10");
+function render(changeDetail) {
+    for (currency in changeDetail) {
+        ul.innerHTML += "<li>" + currency +" € x " + changeDetail[currency] + "</li>";
+    }
+}
+
+function reset() {
+    for(detail in changeDetail) {
+        changeDetail[detail] = 0;
+    }
+
+    ul.innerHTML = "";
+    error.innerHTML = "";
+}
+
+function main() {
+    reset();
+
+    if(priceInput.checkValidity() && moneyInput.checkValidity()) {
+        rendLargent(priceInput.value, moneyInput.value);
+    }
+}
 ```
