@@ -37,6 +37,7 @@ const changeDetail = {
     "0.02": 0,
     "0.01": 0
 };
+
 const error = document.getElementById('error');
 const ul = document.getElementById('change');
 
