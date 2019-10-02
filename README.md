@@ -1,5 +1,5 @@
 # rend-largent
-gives details of the change
+gives details of the change. [Demo](https://jppaled.github.io/rend-largent/)
 
 ```javascript
 const currencies = [
