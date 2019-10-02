@@ -60,9 +60,9 @@ function rendLargent(price, money) {
         if(change === 0) {
             error.innerHTML = "nothing to give back!";
         } else {
-           let aled = changeDetailCalculation(change);
+           let result = changeDetailCalculation(change);
 
-           render(aled);
+           render(result);
         }
     }
 }
