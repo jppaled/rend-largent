@@ -21,7 +21,7 @@ const currencies = [
     "0.01"
 ];
 
-// initial change detail array
+// count of given back change
 let changeDetail = {
     "500.00": 0,
     "200.00": 0,
